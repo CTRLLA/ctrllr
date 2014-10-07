@@ -1,0 +1,19 @@
+{
+  "name": "ctrllr",
+  "version": "0.0.0",
+  "description": "Node RESTful API testing framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CtrlLA/ctrllr.git"
+  },
+  "author": "CTRLLA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CtrlLA/ctrllr/issues"
+  },
+  "homepage": "https://github.com/CtrlLA/ctrllr"
+}
