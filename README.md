@@ -65,7 +65,7 @@ var specs = [{
     description: 'Test one',
     url: '/api/users',
     expectStatus: 200,
-    expectKey: [
+    expectKeys: [
         '_id',
         'username'
     ]
