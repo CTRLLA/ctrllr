@@ -81,7 +81,7 @@ module.exports = [
             setTimeout(function() {
                 deferred.resolve(true);
                 assert('true === true', true === true);
-            }, 5000);
+            }, 100);
 
             // deferred never resolved
 

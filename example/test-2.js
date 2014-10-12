@@ -3,14 +3,11 @@ var
     /** logging service */
     log = new require('ctrl-logger')(),
 
-    /** express server */
-    server = require('./server'),
+    /** ctrllr config */
+    config = require('./config'),
 
     /** ctrllr instance */
-    ctrllr = new require('../lib/ctrllr')({
-        port: 6060,
-        server: server
-    }),
+    ctrllr = new require('../lib/ctrllr')(config),
 
     /** tests */
     test1 = require('./spec'),
