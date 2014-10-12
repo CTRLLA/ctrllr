@@ -5,7 +5,7 @@ API testing made easy - **and it's got no vowels, so you know it's hip.**
 
 Write your tests with JSON, add custom headers, provide functions to run before and after each test, use synchronous or asynchronous calls - the sky's the limit.
 
-Sample Spec
+Usage
 -----------
 `test.js`
 
@@ -36,6 +36,8 @@ module.exports = {
     ]
 }
 ```
+
+Look in the [example](https://github.com/CtrlLA/ctrllr/tree/master/example) directory for more samples. The tests are are `test.js` and `test-2.js` while the specs are in `spec.js`, `spec-2.js`, etc.
 
 Multiple Tests
 --------------
