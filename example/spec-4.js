@@ -43,8 +43,10 @@ module.exports = [
         method: 'POST',
         url: '/api/users',
         headers: { Authorization: 'password' },
-        after: function(response, assert) {
-            assert('_id is defined.', typeof response.body._id !== 'undefined');
+        after: function(response, ctrllr) {
+            ctrllr.assert('_id is defined.', function() {
+                return typeof response.body._id !== 'undefined';
+            });
         },
         expectStatus: 200,
         expectJSON: true
@@ -54,11 +56,14 @@ module.exports = [
         method: 'POST',
         url: '/api/users',
         headers: { Authorization: 'password' },
-        after: function(response, assert) {
+        after: function(response, ctrllr) {
             var deferred = require('q').defer();
 
             setTimeout(function() {
-                assert('_id is defined.', typeof response.body._id !== 'undefined');
+                ctrllr.assert('_id is defined.', function() {
+                    return typeof response.body._id !== 'undefined';
+                });
+
                 deferred.resolve();
             }, 1000);
 
@@ -75,15 +80,14 @@ module.exports = [
         before: function(response, assert) {
 
         },
-        after: function(response, assert) {
+        after: function(response, ctrllr) {
             var deferred = require('q').defer();
 
             setTimeout(function() {
-                deferred.resolve(true);
-                assert('true === true', true === true);
-            }, 100);
+                ctrllr.assert('true === true', true === true);
 
-            // deferred never resolved
+                deferred.resolve(true);
+            }, 100);
 
             return deferred.promise;
         },

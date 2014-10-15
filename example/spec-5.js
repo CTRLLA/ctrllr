@@ -1,5 +1,3 @@
-var $q = require('q');
-
 module.exports = [
     {
         description: 'Data store test',
