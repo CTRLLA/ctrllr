@@ -30,6 +30,10 @@ module.exports = [
             ctrllr.assert('the store can be cleared', store.get('foo') === null);
             ctrllr.assert('the store can be cleared', store.get('bar') === null);
             ctrllr.assert('the store can be cleared', store.get('bam') === null);
+
+            ctrllr.assert('the `assert` can be passed a function', function() {
+                return true;
+            });
         }
     }
 ];
