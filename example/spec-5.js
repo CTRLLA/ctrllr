@@ -12,7 +12,7 @@ module.exports = [
             ctrllr.assert('foo was set', store.get('foo') === 'bar');
             ctrllr.assert('foo is in the store', store.dump().foo === 'bar');
         },
-        after: function(response, ctrllr) {
+        after: function(ctrllr, response) {
             var store = ctrllr.getStore();
 
             ctrllr.assert('foo is still set', store.get('foo') === 'bar');

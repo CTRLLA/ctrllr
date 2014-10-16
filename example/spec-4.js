@@ -3,8 +3,9 @@ module.exports = [
         description: '`before` function',
         method: 'POST',
         url: '/api/users',
-        before: function(ctrllr) {
-            ctrllr.setHeader('Authorization', 'password');
+        before: function(ctrllr, request) {
+            console.log('Calling spec-4 `before`');
+            request.setHeader('Authorization', 'password');
         },
         send: {
             username: 'custom username'
@@ -15,15 +16,17 @@ module.exports = [
             username: 'custom username'
         }
     },
+
+
     {
         description: 'Deferred `before` function',
         method: 'POST',
         url: '/api/users',
-        before: function(ctrllr) {
+        before: function(ctrllr, request) {
             var deferred = require('q').defer();
 
             setTimeout(function() {
-                ctrllr.setHeader('Authorization', 'password');
+                request.setHeader('Authorization', 'password');
                 deferred.resolve(true);
             }, 100);
 
@@ -38,12 +41,15 @@ module.exports = [
             username: 'custom username'
         }
     },
+
+
     {
         description: '`after` function',
         method: 'POST',
         url: '/api/users',
         headers: { Authorization: 'password' },
-        after: function(response, ctrllr) {
+        after: function(ctrllr, response) {
+            console.log('Calling `after` fn.');
             ctrllr.assert('_id is defined.', function() {
                 return typeof response.body._id !== 'undefined';
             });
@@ -51,18 +57,22 @@ module.exports = [
         expectStatus: 200,
         expectJSON: true
     },
+
+
     {
         description: 'Deferred `after` function',
         method: 'POST',
         url: '/api/users',
         headers: { Authorization: 'password' },
-        after: function(response, ctrllr) {
+        after: function(ctrllr, response) {
             var deferred = require('q').defer();
 
             setTimeout(function() {
                 ctrllr.assert('_id is defined.', function() {
                     return typeof response.body._id !== 'undefined';
                 });
+
+                ctrllr.assert('true is true', true === true);
 
                 deferred.resolve();
             }, 1000);
@@ -72,15 +82,17 @@ module.exports = [
         expectStatus: 200,
         expectJSON: true
     },
+
+
     {
         description: '`before` & `after` timeout example',
         method: 'POST',
         url: '/api/users',
         headers: { Authorization: 'password' },
-        before: function(response, assert) {
+        before: function(response, request) {
 
         },
-        after: function(response, ctrllr) {
+        after: function(ctrllr, response) {
             var deferred = require('q').defer();
 
             setTimeout(function() {
