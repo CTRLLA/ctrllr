@@ -1,5 +1,9 @@
 # Created by https://www.gitignore.io
 
+.DS_Store
+*/DS_Store
+**/DS_Store
+
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
