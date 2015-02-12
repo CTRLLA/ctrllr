@@ -7,11 +7,11 @@ var
     config = require('./config'),
 
     /** ctrllr instance */
-    ctrllr = new require('../lib/ctrllr')(config),
+    ctrllr = new require('../../lib/ctrllr')(config),
 
     /** tests */
-    test6 = require('./spec-6');
+    test5 = require('./spec-5');
 
 ctrllr
-    .add(test6)
+    .add(test5)
     .start();

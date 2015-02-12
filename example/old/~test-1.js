@@ -1,13 +1,13 @@
 var
 
     /** custom logging service */
-    log = require('../lib/logger')(),
+    log = require('../../lib/logger')(),
 
     /** test server */
-    server = require('./server'),
+    server = require('./../server'),
 
     /** ctrllr testing lib */
-    ctrllr = new require('../index.js')({
+    ctrllr = new require('../../index.js')({
         port: 6060,
         server: server
     });

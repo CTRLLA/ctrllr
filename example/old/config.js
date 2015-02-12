@@ -1,6 +1,6 @@
 module.exports = {
     port: 6060,
-    server: require('./server'),
+    server: require('./../server'),
     timeout: 5000,
     before: [
         function() {

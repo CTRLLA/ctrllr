@@ -7,7 +7,7 @@ var
     config = require('./config'),
 
     /** ctrllr instance */
-    ctrllr = new require('../lib/ctrllr')(config),
+    ctrllr = new require('../../lib/ctrllr')(config),
 
     /** tests */
     test1 = require('./spec'),
