@@ -8,5 +8,9 @@ module.exports = {
   expectKeys: [
     '_id',
     'username'
+  ],
+  tags: [
+    'users',
+    'users.list'
   ]
 };
