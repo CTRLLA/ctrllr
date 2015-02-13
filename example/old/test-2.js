@@ -1,10 +1,7 @@
 var
 
-    /** logging service */
-    log = new require('ctrl-logger')(),
-
     /** ctrllr config */
-    config = require('./config'),
+    config = require('../example/config'),
 
     /** ctrllr instance */
     ctrllr = new require('../../lib/ctrllr')(config),

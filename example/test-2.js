@@ -1,13 +1,10 @@
 var
 
-  /** express server */
-  server = require('../example/server'),
+  /** ctrllr config */
+  config = require('../example/config'),
 
   /** ctrllr instance */
-  ctrllr = new require('../lib/ctrllr')({
-    port: 6060,
-    server: server
-  }),
+  ctrllr = new require('../lib/ctrllr')(config),
 
   /** tests */
   test1 = require('../example/spec-1'),
