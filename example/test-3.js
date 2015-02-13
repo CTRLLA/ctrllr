@@ -1,17 +1,14 @@
 var
 
-    /** logging service */
-    log = new require('ctrl-logger')(),
+  /** ctrllr config */
+  config = require('../example/config'),
 
-    /** ctrllr config */
-    config = require('./config'),
+  /** ctrllr instance */
+  ctrllr = new require('../lib/ctrllr')(config),
 
-    /** ctrllr instance */
-    ctrllr = new require('../lib/ctrllr')(config),
-
-    /** tests */
-    test5 = require('./spec-5');
+  /** tests */
+  test5 = require('../example/spec-5');
 
 ctrllr
-    .add(test5)
-    .start();
+  .add(test5)
+  .start();
