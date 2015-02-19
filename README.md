@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ctrlla/ctrllr.png?label=ready&title=Ready)](https://waffle.io/ctrlla/ctrllr)
 CTRLLR
 ======
 
