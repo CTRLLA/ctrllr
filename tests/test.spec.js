@@ -54,7 +54,6 @@ describe('test.js', function() {
     });
 
     server = server.listen(4040, function() {
-      console.log('listening');
       done();
     });
   });
@@ -66,9 +65,7 @@ describe('test.js', function() {
     test = null;
     myObj = null;
 
-    console.log('closing server');
     server.close(function() {
-      console.log('closed server');
       server = null;
       done();
     });
@@ -157,6 +154,44 @@ describe('test.js', function() {
       expect(myObj).toBeDefined();
       expect(myObj.foo).toBeDefined();
       expect(myObj.foo).toEqual('bar');
+    }).fail(function(err) {
+      console.log('err', err);
+      expect(err).toBeUndefined();
+    }).fin(function() {
+      done();
+    });
+  });
+
+  it('should hit the specified url in the `execute` function', function(done) {
+    var config = {
+      path: '/foo',
+      method: 'GET',
+    };
+
+    test.config.path = config.path;
+    test.config.method = config.method;
+
+    test.execute().then(function() {
+      expect(myObj).toBeDefined();
+      expect(myObj.foo).toBeDefined();
+      expect(myObj.foo).toEqual('bar');
+    }).fail(function(err) {
+      console.log('err', err);
+      expect(err).toBeUndefined();
+    }).fin(function() {
+      done();
+    });
+  });
+
+  it('should execute a supplied `run` function when calling `execute`', function(done) {
+    test.config.run = function(ctrllr) {
+      myObj.foo = 'baz';
+    };
+
+    test.execute().then(function() {
+      expect(myObj).toBeDefined();
+      expect(myObj.foo).toBeDefined();
+      expect(myObj.foo).toEqual('baz');
     }).fail(function(err) {
       console.log('err', err);
       expect(err).toBeUndefined();

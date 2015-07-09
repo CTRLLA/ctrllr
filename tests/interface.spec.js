@@ -9,10 +9,15 @@ var
   CTRLLR = require('../lib/ctrllr'),
 
   /** ctrllr test interface */
-  Interface = require('../lib/interface'),
+  Interface = require('../lib/interface');
 
-  /** mock server for testing */
-  server = require('./server.mock');
+/* ==========================================================================
+ Helper functions
+ ========================================================================== */
+
+function getServer() {
+  return require('express')();
+}
 
 /* ==========================================================================
  Tests
@@ -26,7 +31,7 @@ describe('util.js', function() {
 
   // initialize ctrllr & interface instances before each test
   beforeEach(function() {
-    ctrllr = new CTRLLR(server);
+    ctrllr = new CTRLLR(getServer());
     _interface = new Interface(ctrllr);
   });
 
