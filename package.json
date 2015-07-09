@@ -1,6 +1,6 @@
 {
   "name": "ctrllr",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Node RESTful API testing framework.",
   "main": "index.js",
   "scripts": {
