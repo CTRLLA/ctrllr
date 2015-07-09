@@ -14,6 +14,8 @@ module.exports = [
     description: 'Single user test two.',
     method: 'GET',
     url: '/api/users/3',
+    beforeEach: false,
+    afterEach: false,
     expectStatus: 200,
     expectJSON: true,
     expectKeyValue: {
