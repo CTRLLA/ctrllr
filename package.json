@@ -1,6 +1,6 @@
 {
   "name": "ctrllr",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Node RESTful API testing framework.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "optimist": "^0.6.1",
     "q": "^1.0.1",
     "superagent": "^0.20.0",
+    "superagent-proxy": "^1.0.3",
     "uuid": "^2.0.1",
     "xtend": "^4.0.0"
   },
